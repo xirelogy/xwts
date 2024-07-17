@@ -1,0 +1,43 @@
+{
+  "name": "@xirelogy/xwts",
+  "version": "0.1.0",
+  "description": "XW (Typescript) framework library",
+  "keywords": [
+    "xw",
+    "xwts",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xirelogy/xwts"
+  },
+  "type": "module",
+  "main": "dist/xwts.umd.cjs",
+  "module": "dist/xwts.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/xwts.umd.cjs",
+      "import": "./dist/xwts.js"
+    },
+    "./locales": {
+      "types": "./dist/locales.d.ts",
+      "require": "./dist/locales.umd.js",
+      "import": "./dist/locales.es.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc && vite build && tsc -P tsconfig.dts.json"
+  },
+  "devDependencies": {
+    "@xirelogy/rollup-plugin-xwts-i18n": "^0.1",
+    "ts-node": "^10",
+    "typescript": "5.5",
+    "vite": "5.3"
+  }
+}
