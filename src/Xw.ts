@@ -166,7 +166,7 @@ class Xw {
 
   /**
    * Flatten the target by removing all lazy evaluation (deep cloning)
-   * @param v 
+   * @param v
    * @returns
    */
   flatten(v: any): any {
@@ -176,7 +176,7 @@ class Xw {
 
   /**
    * Normalize a string
-   * @param v 
+   * @param v
    * @returns
    */
   normalizeString(v: string|Stringable): string
@@ -188,10 +188,9 @@ class Xw {
   }
 
 
-  
   /**
    * Escape according to HTML requirements
-   * @param text 
+   * @param text
    * @returns
    */
   escapeHtml(text: string): string {
@@ -272,7 +271,7 @@ class Xw {
   /**
    * Load Javascript from given source
    * @param src URL to the Javascript
-   * @param options 
+   * @param options
    */
   async loadJavascript(src: string, options?: LoadJavascriptOptions): Promise<void> {
     const optTimeoutMs = options?.timeoutMs ?? null;
@@ -305,13 +304,13 @@ class Xw {
   /**
    * Load JSON from given source using JSONP
    * @param src URL to the JSON
-   * @param options 
+   * @param options
    * @returns The loaded result
    */
   async loadJsonp(this: Xw, src: string, options?: LoadJsonpOptions): Promise<any> {
     const optCallbackArg = options?.callbackArg ?? 'callback';
     const optTimeoutMs = options?.timeoutMs ?? null;
-    
+
     return new Promise((resolve, reject) => {
       const callbackName = 'xwcb_' + this.random.lowerAlphanumString(8);
       const callback = new XwGlobalCallback(callbackName);
@@ -365,7 +364,7 @@ class Xw {
    * @param element Element to be animated
    * @param propSpecs Pair of values for start and end keyframe
    * @param options Animation options
-   * @returns 
+   * @returns
    */
   async animate(element: HTMLElement, propSpecs: Record<string, any[]>, options?: XwKeyframeAnimationOptions): Promise<void> {
     // Construct the keyframes
@@ -417,7 +416,7 @@ class Xw {
   /**
    * Format by replacing numeric placeholder with their corresponding argument
    * @param formatSpec Format specifier, where each placement is wrapped in curly brace
-   * @param args 
+   * @param args
    * @returns Final string
    */
   format(formatSpec: string|Stringable, ...args: any): string {
