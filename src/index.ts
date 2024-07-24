@@ -14,6 +14,7 @@ export * from './interfaces/XwPersistable';
 export * from './interfaces/XwPublishable';
 export * from './interfaces/XwReleasable';
 export * from './interfaces/XwResolvable';
+export * from './interfaces/XwStorageHandleable';
 export * from './interfaces/XwSubscribable';
 export * from './classes/XwCommonConditionalLoggerCreator';
 export * from './classes/XwCommonRandomProvider';

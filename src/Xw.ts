@@ -7,6 +7,7 @@ import { type XwLoggable } from './interfaces/XwLoggable';
 import { type XwLoggerCreatable } from './interfaces/XwLoggerCreatable';
 import { type XwRandomProvidable } from './interfaces/XwRandomProvidable';
 import { type XwReleasable } from './interfaces/XwReleasable';
+import { type XwStorageHandleable } from './interfaces/XwStorageHandleable';
 
 import { XwError } from './classes/XwError';
 import { XwOneTimeRelease } from './classes/XwOneTimeRelease';
@@ -21,6 +22,9 @@ import xwI18n, { xwI18nModuleInit } from './features/XwI18n';
 import xwI18nSetup from './features/XwI18nSetup';
 import xwConsoleLogger from './features/XwConsoleLogger';
 import xwUrlBase64 from './features/XwUrlBase64';
+
+import { jsGlobalStoreAccess } from './compat/JsGlobalStorage';
+import { XwCustomStorage } from './internals/XwCustomStorage';
 
 
 const _l = xwI18nModuleInit('Xw');
@@ -476,6 +480,17 @@ class Xw {
 
       reader.readAsDataURL(file);
     });
+  }
+
+
+  /**
+   * Get access to particular storage
+   * @param key
+   * @returns
+   */
+  createStorage<T>(key: string|Symbol): XwStorageHandleable<T> {
+    const storage = jsGlobalStoreAccess('XwCustomStorage', () => new XwCustomStorage());
+    return storage.access(key);
   }
 }
 
