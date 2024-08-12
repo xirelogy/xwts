@@ -4,6 +4,7 @@ export const TAG = '@xirelogy/xwts';
 // Re-export from files
 export * from './common';
 export * from './sugar';
+export * from './interfaces/XwCoolOffHandleable';
 export * from './interfaces/XwErrorOptions';
 export * from './interfaces/XwI18nDefinable';
 export * from './interfaces/XwI18nInitializable';

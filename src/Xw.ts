@@ -3,6 +3,7 @@ import { Stringable } from './common';
 import LibAsync from './libraries/LibAsync';
 import LibTimeout from './libraries/LibTimeout';
 
+import { type XwCoolOffHandleable } from './interfaces/XwCoolOffHandleable';
 import { type XwLoggable } from './interfaces/XwLoggable';
 import { type XwLoggerCreatable } from './interfaces/XwLoggerCreatable';
 import { type XwRandomProvidable } from './interfaces/XwRandomProvidable';
@@ -414,6 +415,65 @@ class Xw {
       // Start playing
       anim.play();
     });
+  }
+
+
+  /**
+   * Create a handle for timeout execution based on cool-off mechanism
+   * @returns Corresponding handle
+   */
+  createCoolOff(): XwCoolOffHandleable {
+    // Current handle
+    let _timeoutHandle: NodeJS.Timeout|null = null;
+
+    const _clearTimeoutHandle = () => {
+      if (_timeoutHandle === null) return;
+      clearTimeout(_timeoutHandle);
+      _timeoutHandle = null;
+    };
+
+    // Execution trace
+    let _isExecuting = false;
+
+    // Return control interface
+    return {
+      /**
+       * @inheritdoc
+       */
+      get isPending(): boolean {
+        return _timeoutHandle !== null;
+      },
+
+      /**
+       * @inheritdoc
+       */
+      get isExecuting(): boolean {
+        return _isExecuting;
+      },
+
+      /**
+       * @inheritdoc
+       */
+      delay(timeoutMs: number, fn: () => Promise<void>|void): void {
+        _clearTimeoutHandle();
+        _timeoutHandle = setTimeout(async () => {
+          try {
+            _isExecuting = true;
+            await xw.asAsyncTarget(fn());
+          } finally {
+            _isExecuting = false;
+            _timeoutHandle = null; // Clear handle after complete
+          }
+        }, timeoutMs);
+      },
+
+      /**
+       * @inheritdoc
+       */
+      dismiss(): void {
+        _clearTimeoutHandle();
+      }
+    };
   }
 
 
