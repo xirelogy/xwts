@@ -10,8 +10,8 @@ const _l = xwI18nModuleInit('XwDuplicatedError');
 
 /**
  * Format message
- * @param target 
- * @param itemType 
+ * @param target
+ * @param itemType
  * @returns
  */
 function formatMessage(target?: Stringable|string|number, itemType?: Stringable|string): Stringable|string {
@@ -33,9 +33,9 @@ function formatMessage(target?: Stringable|string|number, itemType?: Stringable|
 export class XwDuplicatedError extends XwError {
   /**
    * @constructor
-   * @param target 
+   * @param target
    * @param itemType
-   * @param options 
+   * @param options
    */
   constructor(target?: Stringable|string|number, itemType?: Stringable|string, options?: XwErrorOptions) {
     const _message = xw.normalizeString(formatMessage(target, itemType));

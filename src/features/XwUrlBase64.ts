@@ -6,7 +6,7 @@ const CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-
 
 /**
  * Encode the string as UTF-8
- * @param v 
+ * @param v
  * @returns
  */
 function utf8Encode(v: string): string
@@ -40,7 +40,7 @@ function utf8Encode(v: string): string
 
 /**
  * Decode the string as UTF-8
- * @param v 
+ * @param v
  * @returns
  */
 function utf8Decode(v: string): string
@@ -144,7 +144,7 @@ class XwUrlBase64 {
 
   /**
    * Decode representation of URL-safe base64 string into content string
-   * @param v 
+   * @param v
    */
   decode(v: string): string {
     // Fill up padding automatically
@@ -170,7 +170,7 @@ class XwUrlBase64 {
       if (enc3 !== 64) ret += String.fromCharCode(chr2);
       if (enc4 !== 64) ret += String.fromCharCode(chr3);
     }
-    
+
     // Finally decode as UTF-8
     return utf8Decode(ret);
   }

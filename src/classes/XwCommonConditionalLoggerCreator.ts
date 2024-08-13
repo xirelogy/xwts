@@ -57,7 +57,7 @@ export abstract class XwCommonConditionalLoggerCreator implements XwLoggerCreata
    * If console.info() should log
    * @returns
    */
-  isInfo() : boolean {
+  isInfo(): boolean {
     return true;
   }
 
@@ -66,7 +66,7 @@ export abstract class XwCommonConditionalLoggerCreator implements XwLoggerCreata
    * If console.warn() should log
    * @returns
    */
-  isWarn() : boolean {
+  isWarn(): boolean {
     return true;
   }
 
@@ -75,7 +75,7 @@ export abstract class XwCommonConditionalLoggerCreator implements XwLoggerCreata
    * If console.error() should log
    * @returns
    */
-  isError() : boolean {
+  isError(): boolean {
     return true;
   }
 
@@ -84,7 +84,7 @@ export abstract class XwCommonConditionalLoggerCreator implements XwLoggerCreata
    * If console.debug() should log
    * @returns
    */
-  isDebug() : boolean {
+  isDebug(): boolean {
     return true;
   }
 
@@ -93,7 +93,7 @@ export abstract class XwCommonConditionalLoggerCreator implements XwLoggerCreata
    * If console.group() should log
    * @returns
    */
-  isGroup() : boolean {
+  isGroup(): boolean {
     return true;
-  }  
+  }
 }

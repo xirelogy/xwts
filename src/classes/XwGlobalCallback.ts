@@ -35,7 +35,7 @@ export class XwGlobalCallback {
    */
   listen(fn: (...args: any[]) => void): boolean {
     if (this._isListening) return false;
-    
+
     jsInstallGlobalCallback(this._name, fn);
     this._isListening = true;
 
@@ -49,10 +49,10 @@ export class XwGlobalCallback {
    */
   remove(): boolean {
     if (!this._isListening) return false;
-    
+
     jsUninstallGlobalCallback(this._name);
     this._isListening = false;
-    
+
     return true;
   }
 }

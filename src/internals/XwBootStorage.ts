@@ -78,7 +78,7 @@ export class XwBootConfig {
   /**
    * Run the configuration
    */
-  async run() : Promise<any> {
+  async run(): Promise<any> {
     if (!this.isRunnable) return;
 
     // Start running
@@ -89,7 +89,7 @@ export class XwBootConfig {
       return await xw.asAsyncFn(this.fn);
     } finally {
       this._isRunning = false;
-      this._isCompleted = true;      
+      this._isCompleted = true;
     }
   }
 }
@@ -172,7 +172,7 @@ export class XwBootStorage {
 
   /**
    * Read the result from the provided (fulfilled) dependency
-   * @param provided 
+   * @param provided
    * @returns
    */
   getResult(provided: string): any {
@@ -204,13 +204,13 @@ export class XwBootStorage {
 
       for (const provides of this._providers.keys()) {
         const config = this._providers.get(provides) as XwBootConfig;
-  
+
         // Check state
         if (!config.isRunnable) continue;
-  
+
         // Check dependencies
         if (!this.isFulfilled(config.depends)) continue;
-  
+
         ++totalStarted;
 
         // Invoke
@@ -231,7 +231,7 @@ export class XwBootStorage {
           }
         });
       }
-  
+
       if (totalStarted <= 0) {
         resolve();
       }

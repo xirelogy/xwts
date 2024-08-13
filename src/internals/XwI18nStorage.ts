@@ -12,7 +12,7 @@ const DEFAULT_CLASSNAME = '.';
 
 /**
  * Accept and normalize locale
- * @param locale 
+ * @param locale
  * @returns
  */
 export function acceptLocale(locale: string): string {
@@ -22,7 +22,7 @@ export function acceptLocale(locale: string): string {
 
 /**
  * Normalize and accept class name
- * @param className 
+ * @param className
  * @returns
  */
 export function acceptClassName(className: string|null|undefined): string {
@@ -32,7 +32,7 @@ export function acceptClassName(className: string|null|undefined): string {
 
 /**
  * Create a final class name from list of names
- * @param names 
+ * @param names
  * @returns
  */
 export function createFinalClassKey(names: string[]): string {

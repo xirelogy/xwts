@@ -10,5 +10,5 @@ export interface XwI18nModuleDefinable {
    * @param moduleNames Stack of module names
    * @returns
    */
-  define(...moduleNames: string[]): XwI18nDefinable;  
+  define(...moduleNames: string[]): XwI18nDefinable;
 }

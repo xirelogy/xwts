@@ -20,7 +20,7 @@ import xw from '../Xw';
 
 /**
  * Access to storage
- * @returns 
+ * @returns
  */
 function _getXwDebugLogStorage(): XwDebugLogStorage {
   return jsGlobalStoreAccess('XwDebugLogStorage', () => new XwDebugLogStorage());
@@ -68,7 +68,7 @@ class XwDebugLog {
 
   /**
    * Define the check function
-   * @param fn 
+   * @param fn
    */
   check(fn: XwDebugLogCheckFunction): void {
     _getXwDebugLogStorage().defineCheck(fn);

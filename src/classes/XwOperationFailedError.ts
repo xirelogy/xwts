@@ -11,7 +11,7 @@ const _l = xwI18nModuleInit('XwOperationFailedError');
 
 /**
  * Format the error message
- * @param type 
+ * @param type
  * @returns
  */
 function _formatMessage(type?: string|Stringable): string {
@@ -29,8 +29,8 @@ function _formatMessage(type?: string|Stringable): string {
 export class XwOperationFailedError extends XwError {
   /**
    * @constructor
-   * @param type Operation type 
-   * @param options 
+   * @param type Operation type
+   * @param options
    */
   constructor(type?: string|Stringable, options?: XwErrorOptions) {
     const _message = _formatMessage(type);

@@ -16,7 +16,7 @@ import {
 
 /**
  * Access to storage
- * @returns 
+ * @returns
  */
 function _getXwI18nStorage(): XwI18nStorage {
   return jsGlobalStoreAccess('XwI18nStorage', () => new XwI18nStorage());
@@ -72,10 +72,10 @@ class XwI18nSetup implements XwI18nModuleDefinable {
 
 
   /**
-   * Compile JSON 
+   * Compile JSON
    * @param className
-   * @param locale 
-   * @param content 
+   * @param locale
+   * @param content
    * @returns Specific code that when execute, register translation to the setup function
    */
   compileJson(className: string|null, locale: string, content: string): string {

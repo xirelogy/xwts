@@ -8,5 +8,5 @@ export interface XwRandomProvidable {
    * @param max Maximum
    * @returns The generated random number
    */
-  number(min: number, max: number) : number;
+  number(min: number, max: number): number;
 }

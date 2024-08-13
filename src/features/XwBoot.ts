@@ -10,7 +10,7 @@ import xw from '../Xw';
 /**
  * Accept multiple items
  * @param spec Item specification
- * @returns 
+ * @returns
  */
 function _acceptItems(spec: string|string[]): string[]
 {
@@ -21,7 +21,7 @@ function _acceptItems(spec: string|string[]): string[]
 
 /**
  * Access to storage
- * @returns 
+ * @returns
  */
 function _getXwBootStorage(): XwBootStorage {
   return jsGlobalStoreAccess('XwBootStorage', () => new XwBootStorage());
@@ -51,7 +51,7 @@ class XwBoot {
    * @param fn Initialization function
    * @param provides Items that will be provided after initialization
    * @param depends Items that are dependent before initialization
-   */  
+   */
   define(fn: () => Promise<any>|any, provides?: string, depends?: string|string[]): void {
     const _provides = provides ?? ('anonymous_' + xw.random.hexString(8));
     const _depends = _acceptItems(depends ?? []);
@@ -73,7 +73,7 @@ class XwBoot {
 
   /**
    * Read the result from the provided (fulfilled) dependency
-   * @param provided 
+   * @param provided
    * @returns
    */
   getResult(provided: string): any {

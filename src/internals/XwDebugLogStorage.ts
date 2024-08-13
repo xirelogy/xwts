@@ -13,7 +13,7 @@ export class XwDebugLogStorage {
 
   /**
    * If logging shall be enabled for given debugger source
-   * @param source 
+   * @param source
    * @returns
    */
   public isLog(source: string): boolean {
@@ -23,7 +23,7 @@ export class XwDebugLogStorage {
 
   /**
    * Define the checker function
-   * @param checker 
+   * @param checker
    */
   public defineCheck(checker: XwDebugLogCheckFunction): void {
     this._checker = checker;

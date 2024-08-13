@@ -19,7 +19,7 @@ import {
 
 /**
  * Access to storage
- * @returns 
+ * @returns
  */
 function _getXwI18nStorage(): XwI18nStorage {
   return jsGlobalStoreAccess('XwI18nStorage', () => new XwI18nStorage());
@@ -69,7 +69,7 @@ class XwI18n implements XwI18nInitializable {
 
   /**
    * Initialize with given module name
-   * @param moduleName 
+   * @param moduleName
    * @param furtherModuleNames Any further module names above current module name
    * @returns Initializer
    */

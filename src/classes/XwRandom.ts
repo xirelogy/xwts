@@ -88,5 +88,5 @@ export class XwRandom implements XwRandomProvidable
    */
   fullAlphanumString(length: number): string {
     return this.string(length, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-  }  
+  }
 }
