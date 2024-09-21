@@ -8,7 +8,7 @@ export interface XwLoggerCreatable {
   /**
    * Create a logger
    * @param base Logger to be based upon, if applicable
-   * @returns
+   * @returns Created logger
    */
   createLogger(base?: XwLoggable): XwLoggable;
 }

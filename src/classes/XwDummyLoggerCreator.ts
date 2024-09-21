@@ -1,20 +1,22 @@
 import { XwLoggable } from '../interfaces/XwLoggable';
 import { XwLoggerCreatable } from '../interfaces/XwLoggerCreatable';
+import { XwReleasable } from '../interfaces/XwReleasable';
 import { _used } from '../sugar';
 
 
 /**
  * Dummy log function
  */
-function _dummyLog() {
+function _dummyLog(): void {
 
 }
 
 
 /**
  * Dummy group function
+ * @returns
  */
-function _dummyGroup() {
+function _dummyGroup(): XwReleasable {
   return {
     release() {
 
