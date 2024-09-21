@@ -186,8 +186,11 @@ class Xw {
    */
   normalizeString(v: string|Stringable): string
   normalizeString(v: null): null
+  normalizeString(v: undefined): undefined
   normalizeString(v: string|Stringable|null): string|null
-  normalizeString(v: string|Stringable|null): string|null {
+  normalizeString(v: string|Stringable|undefined): string|undefined
+  normalizeString(v: string|Stringable|null|undefined): string|null|undefined {
+    if (v === undefined) return undefined;
     if (v === null) return null;
     return String(v);
   }
