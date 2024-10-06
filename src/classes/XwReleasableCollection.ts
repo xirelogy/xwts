@@ -35,7 +35,7 @@ export class XwReleasableCollection implements XwReleasable {
    * @param item
    */
   safePush(item: XwReleasable|null|undefined) {
-    if (typeof item === 'undefined' || item === null) return;
+    if (item === undefined || item === null) return;
     this._items.push(item);
   }
 

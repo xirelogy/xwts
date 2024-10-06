@@ -133,11 +133,11 @@ export class XwI18nStorage {
       // Wrap as a Stringable (delay evaluation)
       return {
         toString: () => {
-          const classTranslation = _this.classTranslations.get(classKey) ?? null;
-          if (classTranslation === null) return text;
+          const classTranslation = _this.classTranslations.get(classKey);
+          if (classTranslation === undefined) return text;
 
-          const localeTranslation = classTranslation.get(_this.currentLocale) ?? null;
-          if (localeTranslation === null) return text;
+          const localeTranslation = classTranslation.get(_this.currentLocale);
+          if (localeTranslation === undefined) return text;
 
           return localeTranslation.get(text) ?? text;
         }

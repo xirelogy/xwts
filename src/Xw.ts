@@ -91,7 +91,7 @@ interface XwKeyframeAnimationOptions extends KeyframeAnimationOptions {
 /**
  * Current random instance
  */
-let _currentRandom: XwRandom|null = null;
+let _currentRandom: XwRandom|undefined = undefined;
 /**
  * Current logger instance
  */
@@ -144,7 +144,7 @@ class Xw {
    * Random structure
    */
   get random(): XwRandom {
-    if (_currentRandom === null) {
+    if (_currentRandom === undefined) {
       _currentRandom = new XwRandom(new XwMathRandomProvider());
     }
 
@@ -427,12 +427,12 @@ class Xw {
    */
   createCoolOff(): XwCoolOffHandleable {
     // Current handle
-    let _timeoutHandle: NodeJS.Timeout|null = null;
+    let _timeoutHandle: NodeJS.Timeout|undefined = undefined;
 
     const _clearTimeoutHandle = () => {
-      if (_timeoutHandle === null) return;
+      if (_timeoutHandle === undefined) return;
       clearTimeout(_timeoutHandle);
-      _timeoutHandle = null;
+      _timeoutHandle = undefined;
     };
 
     // Execution trace
@@ -444,7 +444,7 @@ class Xw {
        * @inheritdoc
        */
       get isPending(): boolean {
-        return _timeoutHandle !== null;
+        return _timeoutHandle !== undefined;
       },
 
       /**
@@ -465,7 +465,7 @@ class Xw {
             await xw.asAsyncTarget(fn());
           } finally {
             _isExecuting = false;
-            _timeoutHandle = null; // Clear handle after complete
+            _timeoutHandle = undefined; // Clear handle after complete
           }
         }, timeoutMs);
       },

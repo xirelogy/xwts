@@ -12,7 +12,7 @@ export class XwResolveUsing<T> implements XwResolvable<T> {
   /**
    * Resolved instance
    */
-  private _instance: T|null = null;
+  private _instance: T|undefined = undefined;
 
 
   /**
@@ -28,7 +28,7 @@ export class XwResolveUsing<T> implements XwResolvable<T> {
    * @inheritdoc
    */
   get r(): T {
-    if (this._instance === null) {
+    if (this._instance === undefined) {
       this._instance = this._fn();
     }
     return this._instance;
