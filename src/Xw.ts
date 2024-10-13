@@ -76,7 +76,7 @@ interface FileInDataUrl {
   /**
    * Payload data
    */
-  data: string|ArrayBuffer|null;
+  data: string;
 }
 
 
@@ -525,15 +525,26 @@ class Xw {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (ev) => {
+        const readData = ev.target?.result;
+        if (readData === null || readData === undefined) {
+          reject(new XwError(_l('Invalid completion while reading file as Data URL'), {
+            cause: {
+              file: file,
+              ev: ev,
+            },
+          }));
+          return;
+        }
+
         resolve({
           name: file.name,
           type: file.type,
           size: file.size,
-          data: ev.target?.result ?? null,
+          data: readData as string,
         });
       };
       reader.onerror = (ev) => {
-        reject(new XwError('Error while reading file as Data URL', {
+        reject(new XwError(_l('Error while reading file as Data URL'), {
           cause: {
             file: file,
             ev: ev,

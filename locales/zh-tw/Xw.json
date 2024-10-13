@@ -2,6 +2,8 @@
   "Loading Javascript": "加載Javascript",
   "Loading JSONP": "加載JSONP",
   "Animation cancelled": "動畫取消",
+  "Invalid completion while reading file as Data URL": "讀取文件爲Data-URL時結束狀態無效",
+  "Error while reading file as Data URL": "讀取文件爲Data-URL時出錯",
   "true": "是",
   "false": "否",
   "": ""
