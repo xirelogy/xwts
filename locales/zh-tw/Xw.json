@@ -1,6 +1,7 @@
 {
   "Loading Javascript": "加載Javascript",
   "Loading JSONP": "加載JSONP",
+  "Getting 2D context": "獲取2D上下文",
   "Animation cancelled": "動畫取消",
   "Invalid completion while reading file as Data URL": "讀取文件爲Data-URL時結束狀態無效",
   "Error while reading file as Data URL": "讀取文件爲Data-URL時出錯",

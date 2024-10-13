@@ -368,6 +368,42 @@ class Xw {
 
 
   /**
+   * Load an image
+   * @param src Image source URL / data-URL
+   * @returns Image element containing the image
+   */
+  async loadImage(src: string): Promise<HTMLImageElement> {
+    return new Promise((resolve) => {
+      const image = new Image();
+      image.onload = () => {
+        resolve(image);
+      };
+      image.src = src;
+    });
+  }
+
+
+  /**
+   * Draw image on canvas
+   * @param canvas Canvas to be drawn to
+   * @param image Image or image source URL. If null or undefined, clears the canvas
+   * @returns True if canvas drawn with image, or false if canvas cleared
+   */
+  async drawOnCanvas(this: Xw, canvas: HTMLCanvasElement, image: HTMLImageElement|string|null|undefined): Promise<boolean> {
+    const context = canvas.getContext('2d');
+    if (!context) throw new XwOperationFailedError(_l('Getting 2D context'));
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    if (image === null || image === undefined) return false;
+
+    const _image = image instanceof HTMLImageElement ? image : await this.loadImage(image);
+    context.drawImage(_image, 0, 0, canvas.width, canvas.height);
+
+    return true;
+  }
+
+
+  /**
    * Run animation on given element
    * @param element Element to be animated
    * @param propSpecs Pair of values for start and end keyframe
