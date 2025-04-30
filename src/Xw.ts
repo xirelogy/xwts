@@ -293,7 +293,7 @@ class Xw {
       scriptElement.async = true;
       scriptElement.src = src;
 
-      // Handle events from scrip element
+      // Handle events from script element
       scriptElement.onload = () => {
         resolve();
       };
