@@ -197,6 +197,23 @@ class Xw {
 
 
   /**
+   * Defer string resolution
+   * @param fn Resolution function
+   * @returns
+   */
+  deferString(fn: () => string): Stringable {
+    return {
+      /**
+       * @inheritdoc
+       */
+      toString() {
+        return fn();
+      },
+    };
+  }
+
+
+  /**
    * Escape according to HTML requirements
    * @param text
    * @returns
