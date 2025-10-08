@@ -26,6 +26,7 @@ import xwUrlBase64 from './features/XwUrlBase64';
 
 import { jsGlobalStoreAccess } from './compat/JsGlobalStorage';
 import { XwCustomStorage } from './internals/XwCustomStorage';
+import createAsyncResolver from './internals/createAsyncResolver';
 
 
 const _l = xwI18nModuleInit('Xw');
@@ -269,6 +270,15 @@ class Xw {
     return new Promise((resolve) => {
       resolve(v);
     });
+  }
+
+
+  /**
+   * Create an asynchronous resolvable function
+   * @param fn
+   */
+  asAsyncResolvable<T>(fn: () => Promise<T>): (() => Promise<T>) {
+    return createAsyncResolver(fn);
   }
 
 
