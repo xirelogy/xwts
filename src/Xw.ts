@@ -4,6 +4,7 @@ import LibAsync from './libraries/LibAsync';
 import LibTimeout from './libraries/LibTimeout';
 
 import { type XwCoolOffHandleable } from './interfaces/XwCoolOffHandleable';
+import { type XwDeferrable } from './interfaces/XwDeferrable';
 import { type XwLoggable } from './interfaces/XwLoggable';
 import { type XwLoggerCreatable } from './interfaces/XwLoggerCreatable';
 import { type XwRandomProvidable } from './interfaces/XwRandomProvidable';
@@ -27,6 +28,7 @@ import xwUrlBase64 from './features/XwUrlBase64';
 import { jsGlobalStoreAccess } from './compat/JsGlobalStorage';
 import { XwCustomStorage } from './internals/XwCustomStorage';
 import createAsyncResolver from './internals/createAsyncResolver';
+import createDeferred from './internals/createDeferred';
 
 
 const _l = xwI18nModuleInit('Xw');
@@ -279,6 +281,15 @@ class Xw {
    */
   asAsyncResolvable<T>(fn: () => Promise<T>): (() => Promise<T>) {
     return createAsyncResolver(fn);
+  }
+
+
+  /**
+   * Create a deferrable object that allows asynchronous waiting for a notification
+   * @returns A new XwDeferrable instance
+   */
+  createDeferred<T = void>(): XwDeferrable<T> {
+    return createDeferred<T>();
   }
 
 
